@@ -1,0 +1,94 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+// endbower
+
+@font-face {
+    font-family: 'Mono Social Icons Font';
+    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.eot');
+    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+         url('monosocialiconsfont/MonoSocialIconsFont-1.10.woff') format('woff'),
+         url('monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+         url('monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.symbol, a.symbol:before {
+    font-family: 'Mono Social Icons Font';
+    text-rendering: optimizeLegibility;
+    font-smoothing: antialiased;
+    text-decoration: none;
+    color: black;
+}
+
+.symbol:hover {
+  text-decoration: none;
+}
+
+a.symbol:before {
+    content: attr(title);
+    margin-right: 0.3em;
+    font-size: 130%;
+}
+
+$textColor: #111;
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.peda {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+  margin: 0 auto;
+	background: url(https://avatars3.githubusercontent.com/u/1036566?s=100) no-repeat;
+}
+
+.wrap {
+  padding-top: 42px;
+}
+
+.col {
+  min-height: 100px;
+  background-color: #ddd;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.col h3 {
+  font-size: 22px;
+}
+
+.heading {
+  padding: 40px;
+}
+
+.heading h1 {
+  margin-bottom: 2px;
+}
+
+.heading h2 {
+  font-size: 22px;
+  color: lighten($textColor, 40%);
+  margin-top: 5px;
+}
+
+.titles {
+  margin-left: 20px;
+}
+
+.icons {
+  font-size: 50px;
+  margin-top: 17px;
+  text-align: right;
+  color: black;
+  text-decoration: none;
+}

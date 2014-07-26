@@ -9,11 +9,15 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/monosocialiconsfont/monosocialiconsfont.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-feeds/app/angular-feeds/angular-feeds.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%2C%22nocss%22%3Atrue%7D%5D%7D"></script>
   </head>
   <body ng-app="pedasPageApp">
     <!--[if lt IE 7]>
@@ -23,52 +27,116 @@
     <!-- Add your site or application content here -->
     <div class="container wrap">
       <div class="row">
-        <div class="col-md-12 heading">
-          <div class="col">
+        <div class="col-md-12">
+          <div class="col heading">
             <div class="row">
-              <div class="col-md-1 peda">
+              <div class="col-md-1">
+                <div class="peda"></div>
               </div>
-              <div class="col-md-8 titles">
-                <h1>Peda</h1>
-                <h2>Software Developer 'n' Stuff</h2>
+              <div class="col-md-7">
+                <div class="titles">
+                  <h1>Jan-Henrik Bruhn</h1>
+                  <h2>Software Developer and Student</h2>
+                </div>
               </div>
-              <div class="col-md-2 icons">
+              <div class="col-md-4 icons">
                 <a href="https://twitter.com/jhbruhn"><span class="symbol">circletwitterbird</span></a>
                 <a href="https://github.com/jhbruhn"><span class="symbol">circlegithubalt</span></a>
                 <a href="https://facebook.com/janhenrik.bruhn"><span class="symbol">circlefacebook</span></a>
+                <a href="https://plus.google.com/+JanHenrikBruhn"><span class="symbol">circlegoogleplus</span></a>
+                <a href="mailto:jh.bruhn@me.com"><span class="symbol">circleemail</span></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9 col">
-          <h3>Awesome Projects</h3>
+        <div class="col-md-8">
+          <div class="col">
+            <h2><a href="https://github.com/jhbruhn?tab=repositories">Projects</a></h2>
+            <div class="project main">
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="images/geotown.png" class="center-block" />
+                </div>
+                <div class="col-md-9">
+                  <h3><a href="https://github.com/HappyCarl">GeoTown</a></h3>
+                  <p>
+                    GeoTown is a GPS-based treasure hunt game. You get an image of a common place of interest, and the current distance to it, and then have to find it and answer a question about it.
+                    The system has both a Java-Server, hosted on Google AppEngine, and an Android-App. You can create Routes (collections of sights) on the website, and play those routes in the app.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="project">
+              <div class="row">
+                <div class="col-md-9">
+                  <h3><a href="https://github.com/Puut">Puut</a></h3>
+                  <p>
+                    Puut is an OpenSource alternative to the infamous <a href="puu.sh">Puush</a>. Its only purpose is to upload screenshots. You have to host the server yourself, which gives the credit of all the data to you instead of puush.
+                    The Server is based around Node.js, which I love. It stores the images in a SQLite-Database, which is really bad practice, but it works.
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <img src="images/puut.png" class="center-block" />
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="project">
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="images/pedacoin.png" class="center-block" />
+                </div>
+                <div class="col-md-9">
+                  <h3><a href="https://github.com/jhbruhn/pedacoin">PedaCoin</a></h3>
+                  <p>
+                    Because Cryptocurrencies seem to be trending right now, I created my own fork of BitCoin, called PedaCoin (PEDA). It does not do anything interesting really.
+                    1 PEDA is worth around 0€, which is not great but okay. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-3 col">
-          <h3>Latest Blog-Posts</h3>
+        <div class="col-md-4">
+          <div class="col">
+            <h3><a href="/blog">Latest Blog-Posts</a></h3>
+            <feed summary="true" count="4" url="http://jhbruhn.de/rss/" />
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9 col">
-          <h3>More awesome stuff</h3>
+        <div class="col-md-8">
+          <div class="col">
+            <script
+            data-name="jhbruhn"
+            data-modules="base,details,stats,repos,eventsStatis,orgs"
+            data-reposNum="3"
+            src="http://nodejs.in/octocard/bin/octocard.js">
+          </script>
+          </div>
         </div>
-        <div class="col-md-3 col">
-          <h3>Music I am listening to</h3>
+        <div class="col-md-4">
+          <div class="col music">
+            <h3>Music I am listening to</h3>
+            <feed summary="false" count="20" url="http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss" />
+          </div>
         </div>
       </div>
     </div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+      ga('create', 'UA-47169137-2', 'auto');
+      ga('send', 'pageview');
+
     </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -80,7 +148,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
@@ -101,6 +169,8 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-feeds/app/angular-feeds/angular-feeds.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -5,12 +5,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 @font-face {
     font-family: 'Mono Social Icons Font';
-    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.eot');
-    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-         url('monosocialiconsfont/MonoSocialIconsFont-1.10.woff') format('woff'),
-         url('monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-         url('monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-    src: url('monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype');
+    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot');
+    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.woff') format('woff'),
+         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -34,12 +34,21 @@ a.symbol:before {
 }
 
 $textColor: #111;
+$backgroundColor: #dddddd;
 
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+.col .row {
+  margin-left: 10px;
+}
+
+.heading a:hover {
+    text-decoration: none;
 }
 
 .peda {
@@ -56,23 +65,22 @@ $textColor: #111;
 
 .col {
   min-height: 100px;
-  background-color: #ddd;
-  margin-bottom: 30px;
-  margin-right: 10px;
-  padding: 20px;
-  padding-top: 0px;
+  background-color: $backgroundColor;
+  padding: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .col h3 {
   font-size: 22px;
+  margin-top: 0px;
 }
 
 .heading {
-  padding: 40px;
 }
 
 .heading h1 {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .heading h2 {
@@ -82,13 +90,58 @@ $textColor: #111;
 }
 
 .titles {
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .icons {
   font-size: 50px;
-  margin-top: 17px;
   text-align: right;
   color: black;
+  margin-top: 17px;
   text-decoration: none;
+  padding-right: 20px;
+}
+
+
+.music .media-body {
+  color: $textColor;
+}
+
+.media {
+  margin-top: 5px;
+}
+
+.music .media-body p {
+  display: none;
+}
+
+.music hr {
+  display: none;
+}
+
+.music a {
+  font-size: 15px;
+  color: lighten($textColor, 20%);
+}
+
+.project img {
+  width: 100%;
+  max-width: 192px;
+  margin-top: 10px;
+}
+
+.project p {
+  margin-top: 10px;
+  margin-right: 10px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+h2 a, h3 a {
+  color: $textColor;
+}
+
+.col h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
 }

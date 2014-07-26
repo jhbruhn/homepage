@@ -123,12 +123,15 @@
       <div class="row">
         <div class="col-md-8">
           <div class="col">
-            <script
-            data-name="jhbruhn"
-            data-modules="base,details,stats,repos,eventsStatis,orgs"
-            data-reposNum="3"
-            src="/octocard">
-          </script>
+            <div id="octocard"></div>
+            <script>
+            OCTOCARD = {
+              name: 'jhbruhn',
+              element: 'octocard',
+              modules: "base,details,stats,repos,eventsStatis,orgs",
+              reposNum: '3'
+            };
+            </script>
           </div>
         </div>
         <div class="col-md-4">
@@ -160,6 +163,7 @@
     <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.js -->
+    <script src="app/scripts/octocard.js"></script>
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -187,10 +191,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/languages.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/languages.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

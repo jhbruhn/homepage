@@ -89,13 +89,9 @@ $backgroundColor: #dddddd;
   margin-top: 5px;
 }
 
-.titles {
-  margin-left: 40px;
-}
-
 .icons {
-  font-size: 50px;
-  text-align: right;
+  font-size: 45px;
+  text-align: center;
   color: black;
   margin-top: 17px;
   text-decoration: none;
@@ -144,4 +140,18 @@ h2 a, h3 a {
 .col h2 {
   margin-top: 0;
   margin-bottom: 20px;
+}
+
+.titles {
+  text-align: center;
+}
+
+@media(min-width:992px){
+  .titles {
+    margin-left: 40px;
+    text-align: left;
+  }
+  .icons {
+    text-align: right;
+  }
 }

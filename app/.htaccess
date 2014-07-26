@@ -445,4 +445,4 @@ FileETag None
 RewriteEngine On
 RewriteRule ^octocard/(.*) http://octocard.info/$1 [P]
 RewriteRule ^osrc/(.*) http://osrc.dfm.io/$1 [P]
-RewriteRule ^rss/(.*) http:/localhost:42421/rss/$1 [P]
+RewriteRule ^rss/(.*) http://blog.jhbruhn.de/rss/$1 [R=301,L]

@@ -3,7 +3,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Lato|Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lato|Sanchez);
 
 @font-face {
     font-family: 'Mono Social Icons Font';
@@ -39,7 +39,7 @@ $textColor: #111;
 $backgroundColor: #dddddd;
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Sanchez', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {

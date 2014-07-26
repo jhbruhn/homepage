@@ -541,3 +541,7 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+RewriteEngine On
+RewriteRule ^octocard/(.*) http://nodejs.in/octocard/bin/octocard.js/$1 [P]
+RewriteRule ^osrc/(.*) http://osrc.dfm.io/$1 [P]

@@ -9,7 +9,7 @@
  */
 angular.module('pedasPageApp')
   .controller('LanguagesCtrl', function ($scope, $http) {
-    $http({method: 'GET', url: 'http://osrc.dfm.io/jhbruhn.json'}).
+    $http({method: 'GET', url: '/osrc/jhbruhn.json'}).
       success(function(data) {
         var languages = [];
         var sum = 0;

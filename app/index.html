@@ -103,6 +103,7 @@
         <div class="col-md-4">
           <div class="col" ng-controller="LanguagesCtrl">
             <h3>Preferred 3 Languages</h3>
+            <strong>Based on GitHub statistics.</strong>
             <div ng-repeat="language in languages">
               {{language.language}}
               <div class="progress">
@@ -116,7 +117,7 @@
         <div class="col-md-4">
           <div class="col">
             <h3><a href="http://blog.jhbruhn.de/">Latest Blog-Posts <small>(German)</small></a></h3>
-            <feed summary="true" count="3" url="http://blog.jhbruhn.de/rss/" />
+            <feed summary="true" count="2" url="http://blog.jhbruhn.de/rss/" />
           </div>
         </div>
       </div>
@@ -138,7 +139,7 @@
         <div class="col-md-4">
           <div class="col music">
             <h3>Music I am listening to</h3>
-            <feed summary="false" count="20" url="http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss" />
+            <feed summary="false" count="10" url="http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss" />
           </div>
         </div>
       </div>
@@ -196,6 +197,10 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/languages.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:peda({app}) pedab.js -->
+    <script src="scripts/octocard.js"></script>
     <!-- endbuild -->
 </body>
 </html>

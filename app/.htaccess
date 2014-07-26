@@ -327,10 +327,10 @@ AddDefaultCharset utf-8
 # prevent `https://www.example.com` when your certificate only allows
 # `https://secure.example.com`.
 
-# <IfModule mod_rewrite.c>
-#    RewriteCond %{SERVER_PORT} !^443
-#    RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
-# </IfModule>
+<IfModule mod_rewrite.c>
+   RewriteCond %{SERVER_PORT} !^443
+   RewriteRule ^ https://jhbruhn.de%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -344,19 +344,8 @@ AddDefaultCharset utf-8
 # http://www.html5rocks.com/en/tutorials/security/transport-layer-security/
 
 # <IfModule mod_headers.c>
-#    Header set Strict-Transport-Security max-age=16070400;
+#   Header set Strict-Transport-Security max-age=16070400;
 # </IfModule>
-
-# ------------------------------------------------------------------------------
-# | Server software information                                                |
-# ------------------------------------------------------------------------------
-
-# Avoid displaying the exact Apache version number, the description of the
-# generic OS-type and the information about Apache's compiled-in modules.
-
-# ADD THIS DIRECTIVE IN THE `httpd.conf` AS IT WILL NOT WORK IN THE `.htaccess`!
-
-# ServerTokens Prod
 
 
 # ##############################################################################
@@ -404,38 +393,11 @@ AddDefaultCharset utf-8
 
 </IfModule>
 
-# ------------------------------------------------------------------------------
-# | Content transformations                                                    |
-# ------------------------------------------------------------------------------
-
-# Prevent some of the mobile network providers from modifying the content of
-# your site: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.5.
-
-# <IfModule mod_headers.c>
-#    Header set Cache-Control "no-transform"
-# </IfModule>
-
-# ------------------------------------------------------------------------------
-# | ETag removal                                                               |
-# ------------------------------------------------------------------------------
-
-# Since we're sending far-future expires headers (see below), ETags can
-# be removed: http://developer.yahoo.com/performance/rules.html#etags.
-
-# `FileETag None` is not enough for every server.
 <IfModule mod_headers.c>
     Header unset ETag
 </IfModule>
 
 FileETag None
-
-# ------------------------------------------------------------------------------
-# | Expires headers (for better cache control)                                 |
-# ------------------------------------------------------------------------------
-
-# The following expires headers are set pretty far in the future. If you don't
-# control versioning with filename-based cache busting, consider lowering the
-# cache time for resources like CSS and JS to something like 1 week.
 
 <IfModule mod_expires.c>
 
@@ -487,60 +449,6 @@ FileETag None
     ExpiresByType image/svg+xml                         "access plus 1 month"
 
 </IfModule>
-
-# ------------------------------------------------------------------------------
-# | Filename-based cache busting                                               |
-# ------------------------------------------------------------------------------
-
-# If you're not using a build process to manage your filename version revving,
-# you might want to consider enabling the following directives to route all
-# requests such as `/css/style.12345.css` to `/css/style.css`.
-
-# To understand why this is important and a better idea than `*.css?v231`, read:
-# http://stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring
-
-# <IfModule mod_rewrite.c>
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteCond %{REQUEST_FILENAME} !-d
-#    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
-# </IfModule>
-
-# ------------------------------------------------------------------------------
-# | File concatenation                                                         |
-# ------------------------------------------------------------------------------
-
-# Allow concatenation from within specific CSS and JS files, e.g.:
-# Inside of `script.combined.js` you could have
-#   <!--#include file="libs/jquery.js" -->
-#   <!--#include file="plugins/jquery.idletimer.js" -->
-# and they would be included into this single file.
-
-# <IfModule mod_include.c>
-#    <FilesMatch "\.combined\.js$">
-#        Options +Includes
-#        AddOutputFilterByType INCLUDES application/javascript application/json
-#        SetOutputFilter INCLUDES
-#    </FilesMatch>
-#    <FilesMatch "\.combined\.css$">
-#        Options +Includes
-#        AddOutputFilterByType INCLUDES text/css
-#        SetOutputFilter INCLUDES
-#    </FilesMatch>
-# </IfModule>
-
-# ------------------------------------------------------------------------------
-# | Persistent connections                                                     |
-# ------------------------------------------------------------------------------
-
-# Allow multiple requests to be sent over the same TCP connection:
-# http://httpd.apache.org/docs/current/en/mod/core.html#keepalive.
-
-# Enable if you serve a lot of static content but, be aware of the
-# possible disadvantages!
-
-# <IfModule mod_headers.c>
-#    Header set Connection Keep-Alive
-# </IfModule>
 
 RewriteEngine On
 RewriteRule ^octocard/(.*) http://octocard.info/$1 [P]

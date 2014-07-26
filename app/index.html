@@ -93,7 +93,7 @@
                   <h3><a href="https://github.com/jhbruhn/pedacoin">PedaCoin</a></h3>
                   <p>
                     Because Cryptocurrencies seem to be trending right now, I created my own fork of BitCoin, called PedaCoin (PEDA). It does not do anything interesting really.
-                    1 PEDA is worth around 0€, which is not great but okay. 
+                    1 PEDA is worth around 0€, which is not great but okay.
                   </p>
                 </div>
               </div>
@@ -101,9 +101,22 @@
           </div>
         </div>
         <div class="col-md-4">
+          <div class="col" ng-controller="LanguagesCtrl">
+            <h3>Preferred 3 Languages</h3>
+            <div ng-repeat="language in languages">
+              {{language.language}}
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" ng-style="{'width': '{{language.percent}}%'}">
+                  {{language.percent}}%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="col">
-            <h3><a href="/blog">Latest Blog-Posts</a></h3>
-            <feed summary="true" count="4" url="http://jhbruhn.de/rss/" />
+            <h3><a href="/blog">Latest Blog-Posts <small>(German)</small></a></h3>
+            <feed summary="true" count="3" url="http://jhbruhn.de/rss/" />
           </div>
         </div>
       </div>
@@ -177,6 +190,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/languages.js"></script>
         <!-- endbuild -->
 </body>
 </html>

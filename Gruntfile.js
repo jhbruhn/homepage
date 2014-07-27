@@ -15,6 +15,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  var critical = require('critical');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -409,6 +411,18 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
+  grunt.registerTask('inlineCss', function() {
+    var cb = this.async();
+    critical.inline({
+      base: 'dist/',
+      src: 'index.html',
+      dest: 'index.html',
+      minify: true,
+      width: 320,
+      height: 480
+    }, cb);
+  });
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -423,6 +437,7 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
+    'inlineCss',
     'htmlmin'
   ]);
 

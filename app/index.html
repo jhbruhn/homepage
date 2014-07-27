@@ -18,10 +18,12 @@
     <!-- endbuild -->
 
     <link rel="icon" type="image/png" href="https://avatars3.githubusercontent.com/u/1036566?s=32" />
-
-    <script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%2C%22nocss%22%3Atrue%7D%5D%7D"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      google.load('feeds', '1');
+    </script>
   </head>
-  <body ng-app="pedasPageApp">
+  <body ng-app="pedasPageApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -123,9 +125,8 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="col">
+          <div class="col" id="blogposts">
             <h3><a href="http://blog.jhbruhn.de/">Latest Blog-Posts <small>(German)</small></a></h3>
-            <feed summary="true" count="3" url="http://blog.jhbruhn.de/rss/" />
           </div>
         </div>
         <div class="col-md-8">
@@ -143,9 +144,9 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="col music">
+          <div class="col music" id="musiccol">
             <h3>Music I am listening to</h3>
-            <feed summary="false" count="16" url="http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss" />
+            
           </div>
         </div>
       </div>

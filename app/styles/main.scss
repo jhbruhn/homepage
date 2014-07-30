@@ -1,7 +1,19 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
+
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/print";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/type";
+
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
+
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/progress-bars";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/media";
 
 @import url(https://fonts.googleapis.com/css?family=Lato|Sanchez);
 

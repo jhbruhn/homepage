@@ -10,6 +10,5 @@
  */
 angular
   .module('pedasPageApp', [
-    'ngTouch',
-    'feeds'
+    'ngTouch'
   ]);

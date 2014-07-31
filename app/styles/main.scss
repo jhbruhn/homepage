@@ -20,7 +20,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
 
-@include font-face("Mono Social Icons Font", font-files("../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.woff", "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf", "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont"), "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot", normal, normal);
+@include font-face("Mono Social Icons Font", font-files("../../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.woff", "../../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf", "../../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont"), "../../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot", normal, normal);
 
 .symbol, a.symbol:before {
     font-family: 'Mono Social Icons Font';

@@ -25,6 +25,7 @@ angular.module('pedasPageApp')
   	counter = 0;
   	$("#musiccol").rss("http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss", {
   		limit: 16,
+      ssl: true,
   		layoutTemplate: "<ul class='media-list'>{entries}</ul>",
   		entryTemplate: "<li class='media'><div class='media-body'><h4 class='media-heading'><a href='{url}' target='_new'>{title}</a></h4></li>"
   	});

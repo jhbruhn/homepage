@@ -2,6 +2,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 // endbower
 
+@import "compass/css3/font-face";
+
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 
@@ -18,28 +20,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
 
-@font-face {
-    font-family: 'Mono Social Icons Font';
-    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot');
-    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.woff') format('woff'),
-         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-         url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-    src: url('../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+@include font-face("Mono Social Icons Font", font-files("../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.woff", "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.ttf", "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont"), "../bower_components/monosocialiconsfont/MonoSocialIconsFont-1.10.eot", normal, normal);
 
 .symbol, a.symbol:before {
     font-family: 'Mono Social Icons Font';
     text-rendering: optimizeLegibility;
     font-smoothing: antialiased;
-    text-decoration: none;
-    color: black;
-}
-
-.symbol:hover {
-  text-decoration: none;
 }
 
 a.symbol:before {
@@ -47,6 +33,11 @@ a.symbol:before {
     margin-right: 0.3em;
     font-size: 130%;
 }
+
+.symbol:hover {
+  text-decoration: none;
+}
+
 
 $textColor: #111;
 $backgroundColor: #dddddd;

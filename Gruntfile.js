@@ -425,6 +425,7 @@ module.exports = function (grunt) {
     }, cb);
   });
 
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',

@@ -33,7 +33,7 @@
 
     <link rel="icon" type="image/png" href="images/jhbruhn.jpeg" />
   </head>
-  <body ng-app="pedasPageApp" ng-controller="MainCtrl">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -122,17 +122,10 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="col" ng-controller="LanguagesCtrl">
+          <div class="col" id="langStats">
             <h3>Preferred 3 Languages</h3>
             <strong>Based on GitHub statistics.</strong>
-            <div ng-repeat="language in languages">
-              {{language.language}}
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" ng-style="{'width': '{{language.percent}}%'}">
-                  {{language.percent}}%
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
         <div class="col-md-4">
@@ -186,17 +179,12 @@
     <script src="app/scripts/octocard.js"></script>
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/jquery-rss/dist/jquery.rss.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/languages.js"></script>
     <!-- endbuild -->
 
     <!-- build:peda({app}) pedab.js -->

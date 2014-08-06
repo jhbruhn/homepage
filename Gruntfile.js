@@ -363,8 +363,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>'
         }, {
           expand: true,
-          cwd: '.',
-          src: 'bower_components/monosocialiconsfont/Mono*',
+          cwd: './bower_components/monosocialiconsfont',
+          src: 'Mono*',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -432,7 +432,6 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngmin',
     'copy:dist',
     'cdnify',
     'cssmin',

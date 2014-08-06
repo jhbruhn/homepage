@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
-    "critical": "0.1.6",
+    "critical": "micahblu/critical#2dea32fb86c",
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-concurrent": "^0.5.0",

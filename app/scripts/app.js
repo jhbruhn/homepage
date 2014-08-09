@@ -23,29 +23,31 @@ $("#musiccol").rss("http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.r
   entryTemplate: "<li class='media'><div class='media-body'><h4 class='media-heading'><a href='{url}' target='_new'>{title}</a></h4></li>"
 });
 
-$.get('https://jhbruhn.de/osrc/jhbruhn.json').
+$.getJSON('https://jhbruhn.de/osrc/jhbruhn.json?callback=?').
   done(function(data) {
     var languages = [];
+    console.log(data);
     var sum = 0;
-    $.forEach(data.usage.languages, function(l, i) {
+    $.each(data.usage.languages, function(i, l) {
       if(i > 2) {
         return;
       }
       languages.push(l);
       sum += l.count;
     });
-    $.forEach(languages, function(l, i) {
+    $.each(languages, function(i, l) {
       languages[i].percent = Math.round((l.count / sum) * 100);
       var $div = $("<div></div>");
-      $div.append($(l.language));
+      $div.append(l.language);
       var $progressOuter = $("<div class='progress'></div>");
       var $progressInner = $("<div class='progress-bar' role='progressbar'>" + languages[i].percent + "%</div>");
       $progressInner.width(languages[i].percent + "%");
-      $progressOuter.append($progressInner);
-      
+      $progressOuter.append($progressInner[0]);
+      $div.append($progressOuter[0])
       $("#langStats").append($div);
     });
     $("#langStats").show();
   });
+  
   
 $("#langStats").hide();

@@ -269,7 +269,7 @@ FileETag None
 </IfModule>
 
 RewriteEngine On
-RewriteRule ^octocard/(.*) http://octocard.info/$1 [P]
+RewriteRule ^octocard/(.*) http://octocard.in/$1 [P]
 RewriteRule ^osrc/(.*) http://osrc.dfm.io/$1 [P]
 RewriteRule ^rss/(.*) http://blog.jhbruhn.de/rss/$1 [R=301,L]
 RewriteRule ^rss(.*) http://blog.jhbruhn.de/rss/$1 [R=301,L]

@@ -167,7 +167,7 @@ module.exports = function (grunt) {
       options: {
         cwd: '<%= yeoman.app %>',
         directory: 'bower_components', // default: '.bowerrc'.directory || bower_components
-        bowerJson: require('bower.json')
+        bowerJson: require('./bower.json')
       },
       app: {
         src: ['<%= yeoman.app %>/index.html'],

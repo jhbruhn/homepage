@@ -165,7 +165,9 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       options: {
-        cwd: '<%= yeoman.app %>'
+        cwd: '<%= yeoman.app %>',
+        directory: 'bower_components', // default: '.bowerrc'.directory || bower_components
+        bowerJson: require('bower.json')
       },
       app: {
         src: ['<%= yeoman.app %>/index.html'],

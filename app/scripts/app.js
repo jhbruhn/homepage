@@ -16,7 +16,7 @@ $("#blogposts").rss("http://blog.jhbruhn.de/rss", {
   entryTemplate: "<li class='media'><div class='media-body'><h4 class='media-heading'><a href='{url}' target='_new'>{title}</a></h4><p>{shortBodyPlain}</p></div>{hr}</li>"
 });
 counter = 0;
-$("#musiccol").rss("http://ws.audioscrobbler.com/1.0/user/jhbruhn/recenttracks.rss", {
+$("#musiccol").rss("https://xiffy.nl/lastfmrss.php?user=jhbruhn", {
   limit: 16,
   ssl: true,
   layoutTemplate: "<ul class='media-list'>{entries}</ul>",

@@ -4,7 +4,7 @@
   "dependencies": {
     "bootstrap-sass-official": "~3.2.0",
     "monosocialiconsfont": "*",
-    "jquery-rss": "~1.4.1"
+    "jquery-rss": "~3.3.0"
   },
   "appPath": "app"
 }

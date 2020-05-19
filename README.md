@@ -1,2 +1,5 @@
 pedas-page
 ==========
+
+git remote add production jhbruhn@boethin.uberspace.de:~/homepage.git
+git push production master

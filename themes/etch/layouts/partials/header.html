@@ -1,0 +1,39 @@
+<header id="banner">
+    <h2><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h2>
+    <nav>
+        <ul>
+            {{ range where .Site.Home.Pages "Title" "!=" "Posts" }}
+            <li>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+            
+            {{ with .Site.Params.email }}
+            <li><a href="{{ . }}"><i class="fas fa-envelope"></i></a></li>
+            {{ end }}
+
+            {{ with .Site.Params.matrix }}
+            <li><a href="{{ . }}"><i class="fa fa-matrix-org"></i></a></li>
+            {{ end }}
+
+            {{ with .Site.Params.github }}
+            <li><a href="{{ . }}"><i class="fab fa-github"></i></a></li>
+            {{ end }}
+        
+            {{ with .Site.Params.linkedin }}
+            <li><a href="{{ . }}"><i class="fab fa-linkedin"></i></a></li>
+            {{ end }}
+        
+            {{ with .Site.Params.xing }}
+            <li><a href="{{ . }}"><i class="fab fa-xing"></i></a></li>
+            {{ end }}
+
+            {{ with .Site.Params.flickr }}
+            <li><a href="{{ . }}"><i class="fab fa-flickr"></i></a></li>
+            {{ end }}
+        
+        
+        </ul>
+    </nav>
+
+</header>

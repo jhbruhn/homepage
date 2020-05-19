@@ -1,3 +1,26 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://jhbruhn.de"
+title = "Jan-Henrik Bruhn"
+theme = "etch"
+languageCode = "en-US"
+enableInlineShortcodes = true
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  description = "Personal homepage of Jan-Henrik Bruhn."
+  copyright = "Copyright © 2020 Jan-Henrik Bruhn"
+  highlight = true
+
+  email = "mailto:hi-from-www@jhbruhn.de"
+  github = "https://github.com/jhbruhn"
+  linkedin = "https://www.linkedin.com/in/jan-henrik-bruhn/"
+  xing = "https://www.xing.com/profile/JanHenrik_Bruhn/cv"
+  matrix = "https://matrix.to/#/@jhbruhn:jhbruhn.de"
+  flickr = "https://www.flickr.com/photos/96204086@N02/"
+
+[permalinks]
+  posts = "/posts/:title/"
+
+[markup.goldmark.renderer]
+  # Allow HTML in Markdown
+  unsafe = true

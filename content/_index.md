@@ -2,7 +2,7 @@
 title: "Jan-Henrik Bruhn"
 ---
 
-Hi!
+Moin!
 
 I am Jan-Henrik, **computer science** student at TU Dortmund, Germany.
 

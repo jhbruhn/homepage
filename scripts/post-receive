@@ -1,0 +1,12 @@
+#!/bin/bash
+WORKING_DIRECTORY=$(mktemp -d -t deploy-homepage-XXXXXXXX)
+GIT_REPO=$(pwd)
+echo "Working dir: $WORKING_DIRECTORY"
+echo "Git Repo: $GIT_REPO"
+
+git clone $GIT_REPO $WORKING_DIRECTORY
+cd $WORKING_DIRECTORY
+
+exec scripts/build_and_install.sh
+
+rm -rf $WORKING_DIRECTORY

@@ -15,5 +15,5 @@ Right now, the amount of such notes is very low, but this may
 improve in the future.
 
 If you wanna reach out, hit me up via
-[email](mailto:hi-from-www@jhbruhn.de) or
+[email](mailto:hi-from-www@jhbruhn.de) (GPG [0xA8396F42](/A8396F42.asc)) or
 [matrix](https://matrix.to/#/@jhbruhn:jhbruhn.de) (_fancy!_).

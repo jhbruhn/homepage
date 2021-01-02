@@ -53,12 +53,12 @@ header#banner {
     margin: 25px 0;
 }
 
-header#banner a {
+header#banner a, footer a {
     color: #313a3d;
     text-decoration: none;
 }
 
-header#banner a:hover {
+header#banner a:hover, footer a:hover {
     text-decoration: underline;
 }
 
@@ -93,7 +93,7 @@ header#banner nav ul li a {
 }
 
 @media (prefers-color-scheme: dark) {
-    header#banner a {
+    header#banner a, footer a {
         color: #e0e0e0;
         text-decoration: none;
     }
@@ -254,4 +254,8 @@ footer#footer {
     font-weight: 300;
     color: #949494;
     margin: 40px 0;
+}
+
+a.imprint {
+    float: right;
 }

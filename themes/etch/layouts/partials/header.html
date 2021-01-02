@@ -2,7 +2,7 @@
     <h2><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h2>
     <nav>
         <ul>
-            {{ range where .Site.Home.Pages "Title" "!=" "Posts" }}
+            {{ range where (where .Site.Home.Pages "Title" "!=" "Posts") "Title" "!=" "Imprint" }}
             <li>
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
             </li>

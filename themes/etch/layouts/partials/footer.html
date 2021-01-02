@@ -1,3 +1,7 @@
 <footer id="footer">
     {{ .Site.Params.copyright }}
+    
+    {{ range where .Site.Home.Pages "Title" "==" "Imprint" }}
+        <a href="{{ .Permalink }}" class="imprint">{{ .Title }}</a>
+    {{ end }}
 </footer>

@@ -1,4 +1,4 @@
-{{ if len site.RegularPages }}
+{{ if len (where site.RegularPages "Title" "!=" "Imprint") }}
 <h3>Posts</h3>
 <ul id="posts">
 {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}

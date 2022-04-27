@@ -6,6 +6,11 @@
             <time>{{ .Date.Format "January 2, 2006" }}</time>
         {{- end -}}
     </header>
+
+    <aside>
+        {{ .TableOfContents }}
+    </aside>
+
     {{- .Content -}}
 </article>
 {{ end }}

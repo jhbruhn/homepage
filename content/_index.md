@@ -1,5 +1,6 @@
 ---
 title: "Jan-Henrik Bruhn"
+description: "Personal homepage of Jan-Henrik Bruhn"
 ---
 
 Moin!

@@ -8,7 +8,7 @@ pygmentsUseClasses = true
 
 
 [params]
-description = "Personal homepage of Jan-Henrik Bruhn."
+#description = "Personal homepage of Jan-Henrik Bruhn."
 copyright = "Copyright © 2022 Jan-Henrik Bruhn"
 highlight = true
 

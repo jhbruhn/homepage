@@ -17,4 +17,4 @@ improve in the future.
 
 If you wanna reach out, hit me up via
 [email](mailto:hi-from-www@jhbruhn.de) (GPG [0xA8396F42](/A8396F42.asc)) or
-[matrix](https://matrix.to/#/@jhbruhn:jhbruhn.de) (_fancy!_).
+[matrix](https://matrix.to/#/@jan-henrik:baubs.net) (_fancy!_).

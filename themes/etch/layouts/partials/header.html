@@ -31,6 +31,10 @@
             {{ with .Site.Params.flickr }}
             <li><a href="{{ . }}"><i class="fab fa-flickr"></i></a></li>
             {{ end }}
+
+            {{ with .Site.Params.mastodon }}
+            <li><a rel="me" href="{{ . }}"><i class="fab fa-mastodon"></i></a></li>
+            {{ end }}
         
         
         </ul>

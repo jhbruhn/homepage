@@ -1,47 +1,23 @@
 @font-face{
-    font-family: "Iosevka Sparkle";
-    src: url("/fonts/iosevka-sparkle-regular.woff2") format('woff2'), url("/fonts/iosevka-sparkle-regular.woff") format('woff');
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/woff2/iosevka-etoile-regular.woff2") format('woff2');
 }
 
 @font-face{
-    font-family: "Iosevka Sparkle";
-    src: url("/fonts/iosevka-sparkle-italic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-italic.woff") format('woff');
-    font-style: italic;
-}
-
-@font-face{
-    font-family: "Iosevka Sparkle";
-    src: url("/fonts/iosevka-sparkle-bold.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bold.woff") format('woff');
-    font-weight: bold;
-}
-
-@font-face{
-    font-family: "Iosevka Sparkle";
-    src: url("/fonts/iosevka-sparkle-bolditalic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bolditalic.woff") format('woff');
-    font-weight: bold;
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/woff2/iosevka-etoile-italic.woff2") format('woff2');
     font-style: italic;
 }
 
 @font-face{
     font-family: "Iosevka Etoile";
-    src: url("/fonts/iosevka-etoile-regular.woff2") format('woff2');
-}
-
-@font-face{
-    font-family: "Iosevka Etoile";
-    src: url("/fonts/iosevka-etoile-italic.woff2") format('woff2');
-    font-style: italic;
-}
-
-@font-face{
-    font-family: "Iosevka Etoile";
-    src: url("/fonts/iosevka-etoile-bold.woff2") format('woff2');
+    src: url("/fonts/woff2/iosevka-etoile-bold.woff2") format('woff2');
     font-weight: bold;
 }
 
 @font-face{
     font-family: "Iosevka Etoile";
-    src: url("/fonts/iosevka-etoile-bolditalic.woff2") format('woff2');
+    src: url("/fonts/woff2/iosevka-etoile-bolditalic.woff2") format('woff2');
     font-weight: bold;
     font-style: italic;
 }

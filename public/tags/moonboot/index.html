@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html><head>
+    <title>moonboot</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <style type="text/css" media="screen">
+        @font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-regular.woff2") format('woff2'), url("/fonts/iosevka-sparkle-regular.woff") format('woff');
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-italic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-italic.woff") format('woff');
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-bold.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-bolditalic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bolditalic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-regular.woff2") format('woff2');
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-italic.woff2") format('woff2');
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-bold.woff2") format('woff2');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-bolditalic.woff2") format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-thin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-thinoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-thinoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-thinitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-extralight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-extralightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-extralightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-extralightitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-lightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-lightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-lightitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-oblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-oblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-mediumoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-mediumoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-mediumitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-semibold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-semiboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-semiboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-semibolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-boldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-boldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-bolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-extrabold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-extraboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-extraboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-extrabolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-heavy.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: oblique;
+	src:  url('/fonts/woff2/iosevka-aile-heavyoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-heavyoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-heavyitalic.woff2') format('woff2');
+}
+
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 80.0%;
+}
+
+body {
+/*    font-size: 16px;*/
+    font-size: 1.4rem;
+    font-family: 'Iosevka Aile Web', 'Courier New', monospace;
+    color: #313a3d;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ebebeb;
+        background: #121212;
+    }
+}
+
+header#banner {
+    margin: 25px 0;
+}
+
+header#banner a, footer a {
+    color: #313a3d;
+    text-decoration: none;
+}
+
+header#banner a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+header#banner h2 {
+    display: inline;
+    font-size: 2.1rem;
+    margin: 0 8px 0 0;
+}
+
+header#banner nav {
+    display: inline-block;
+    float: right;
+    line-height: 3.3rem;
+    margin: 3px 8px 0 0;
+}
+
+header#banner nav ul {
+    list-style-type: none;
+    font-size: 1.05em;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+header#banner nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+header#banner nav ul li a {
+    color: #454545;
+}
+
+@media (prefers-color-scheme: dark) {
+    header#banner a, footer a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    header#banner nav ul li a {
+        color: #cccccc;
+    }
+}
+
+main#content a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content a {
+        color: #00b1ed;
+    }
+}
+
+main#content a:hover {
+    text-decoration: underline;
+}
+
+main#content p {
+    color: #394548;
+    margin: 16px 0;
+    text-align: justify;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content p {
+        color: #f5f5f5;
+    }
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0;
+    line-height: 1.15;
+}
+
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+/* index.html styles */
+main#content ul#posts {
+    list-style-type: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding: 0;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts small {
+        color: #a7a7a7;
+    }
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts li a:hover {
+    color: #369aff;
+}
+
+main#content ul#posts li a:hover small {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts li a:hover {
+        color: #21c7ff;
+    }
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    display: block;
+    font-size: 23px;
+    font-size: 2.3rem;
+    line-height: 1.15;
+}
+
+main#content header#post-header time {
+    display: block;
+    font-size: 0.85em;
+    color: #767676;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content header#post-header time {
+        color: #a7a7a7;
+    }
+}
+
+main#content img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main#content code,
+main#content .goat ,
+main#content .goat svg,
+main#content pre {
+    font-family: 'Iosevka Etoile', monospace;
+}
+
+main#content code,
+main#content .goat,
+main#content .goat svg {
+    font-size: 0.96em;
+    padding: 0 5px;
+}
+
+main#content pre {
+    display: block;
+    overflow-x: auto;
+    font-size 14px;
+    font-size: 1.4rem;
+    white-space: pre;
+    margin: 20px 0;
+    padding: 1.5rem 1.5rem;
+    line-height: 1.4;
+}
+
+main#content pre code {
+    padding: 0;
+}
+
+footer#footer {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #949494;
+    margin: 40px 0;
+}
+
+a.imprint {
+    float: right;
+}
+
+    </style>
+    
+    
+    <link rel="stylesheet" href="https://jhbruhn.de/css/fontawesome.min.0154e262e41a403af5e72c5f6958fb3854147cda533415c0a8a1458fb505b9c0.css">   
+    
+    
+    <link rel="stylesheet" href="https://jhbruhn.de/css/fork-awesome.min.4a398bd4e9aa7694483fa9c924e8e1f34aae102f72838b5d3fa72fcfd8b98775.css">   
+    
+    <style type="text/css" media="(min-width: 770px)">
+        body {
+    width: 700px;
+    line-height: 1.5;
+}
+
+/* index.html styles */
+header#banner h2 {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
+
+main#content h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+main#content ul#posts {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
+
+main#content img {
+    max-width: 108%;
+    margin-left: -4%;
+}
+
+main#content pre {
+    width: 108%;
+    margin-left: -4%;
+    padding: 1.5rem 2.2rem;
+}
+
+    </style>
+
+    
+        
+        <link rel="stylesheet" href="https://jhbruhn.de/css/syntax.min.css">
+    
+
+    <link rel="shortcut icon" href='https://jhbruhn.de/favicon.ico'>
+</head>
+<body><header id="banner">
+    <h2><a href="https://jhbruhn.de">Jan-Henrik Bruhn</a></h2>
+    <nav>
+        <ul>
+            
+            
+            
+            <li><a href="mailto:hi-from-www@jhbruhn.de"><i class="fas fa-envelope"></i></a></li>
+            
+
+            
+            <li><a href="https://matrix.to/#/@jhbruhn:jhbruhn.de"><i class="fa fa-matrix-org"></i></a></li>
+            
+
+            
+            <li><a href="https://github.com/jhbruhn"><i class="fab fa-github"></i></a></li>
+            
+        
+            
+            <li><a href="https://www.linkedin.com/in/jan-henrik-bruhn/"><i class="fab fa-linkedin"></i></a></li>
+            
+        
+            
+            <li><a href="https://www.xing.com/profile/JanHenrik_Bruhn/cv"><i class="fab fa-xing"></i></a></li>
+            
+
+            
+            <li><a href="https://www.flickr.com/photos/96204086@N02/"><i class="fab fa-flickr"></i></a></li>
+            
+
+            
+            <li><a rel="me" href="https://social.baubs.net/@janhenrik"><i class="fab fa-mastodon"></i></a></li>
+            
+        
+        
+        </ul>
+    </nav>
+
+</header>
+<main id="content">
+<h3>Posts</h3>
+<ul id="posts">
+
+    <li>
+        <a href="https://jhbruhn.de/posts/moonboot/">Moonboot<small><time>Apr 27, 2022</time></small>
+        </a>
+    </li>
+
+</ul>
+
+
+        </main><footer id="footer">
+    Copyright © 2022 Jan-Henrik Bruhn
+    
+    
+        <a href="https://jhbruhn.de/_imprint/" class="imprint">Imprint</a>
+    
+</footer>
+</body>
+</html>

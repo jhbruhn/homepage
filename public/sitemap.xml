@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jhbruhn.de/tags/bootloader/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/tags/firmware/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/tags/fota/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/posts/moonboot/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/tags/moonboot/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/posts/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/tags/rust/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/tags/</loc>
+    <lastmod>2022-04-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jhbruhn.de/categories/</loc>
+  </url><url>
+    <loc>https://jhbruhn.de/_imprint/</loc>
+  </url>
+</urlset>

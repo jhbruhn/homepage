@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Jan-Henrik Bruhn</title>
+    <link>https://jhbruhn.de/tags/</link>
+    <description>Recent content in Tags on Jan-Henrik Bruhn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jhbruhn.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bootloader</title>
+      <link>https://jhbruhn.de/tags/bootloader/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/tags/bootloader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firmware</title>
+      <link>https://jhbruhn.de/tags/firmware/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/tags/firmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fota</title>
+      <link>https://jhbruhn.de/tags/fota/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/tags/fota/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>moonboot</title>
+      <link>https://jhbruhn.de/tags/moonboot/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/tags/moonboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://jhbruhn.de/tags/rust/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

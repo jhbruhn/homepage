@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Moonboot</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Bare-metal Bootloader Framework for Rust">
+    
+
+    <style type="text/css" media="screen">
+        @font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-regular.woff2") format('woff2'), url("/fonts/iosevka-sparkle-regular.woff") format('woff');
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-italic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-italic.woff") format('woff');
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-bold.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "Iosevka Sparkle";
+    src: url("/fonts/iosevka-sparkle-bolditalic.woff2") format('woff2'), url("/fonts/iosevka-sparkle-bolditalic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-regular.woff2") format('woff2');
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-italic.woff2") format('woff2');
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-bold.woff2") format('woff2');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: "Iosevka Etoile";
+    src: url("/fonts/iosevka-etoile-bolditalic.woff2") format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-thin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-thinoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-thinoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 100;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-thinitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-extralight.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-extralightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-extralightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 200;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-extralightitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-lightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-lightoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 300;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-lightitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-oblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-oblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-mediumoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-mediumoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-mediumitalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-semibold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-semiboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-semiboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-semibolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-boldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-boldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-bolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-extrabold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: oblique;
+	src: url('/fonts/woff2/iosevka-aile-extraboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-extraboldoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 800;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-extrabolditalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/woff2/iosevka-aile-heavy.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: oblique;
+	src:  url('/fonts/woff2/iosevka-aile-heavyoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web Oblique';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	src: url('/fonts/woff2/iosevka-aile-heavyoblique.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: italic;
+	src: url('/fonts/woff2/iosevka-aile-heavyitalic.woff2') format('woff2');
+}
+
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 80.0%;
+}
+
+body {
+/*    font-size: 16px;*/
+    font-size: 1.4rem;
+    font-family: 'Iosevka Aile Web', 'Courier New', monospace;
+    color: #313a3d;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ebebeb;
+        background: #121212;
+    }
+}
+
+header#banner {
+    margin: 25px 0;
+}
+
+header#banner a, footer a {
+    color: #313a3d;
+    text-decoration: none;
+}
+
+header#banner a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+header#banner h2 {
+    display: inline;
+    font-size: 2.1rem;
+    margin: 0 8px 0 0;
+}
+
+header#banner nav {
+    display: inline-block;
+    float: right;
+    line-height: 3.3rem;
+    margin: 3px 8px 0 0;
+}
+
+header#banner nav ul {
+    list-style-type: none;
+    font-size: 1.05em;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+header#banner nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+header#banner nav ul li a {
+    color: #454545;
+}
+
+@media (prefers-color-scheme: dark) {
+    header#banner a, footer a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    header#banner nav ul li a {
+        color: #cccccc;
+    }
+}
+
+main#content a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content a {
+        color: #00b1ed;
+    }
+}
+
+main#content a:hover {
+    text-decoration: underline;
+}
+
+main#content p {
+    color: #394548;
+    margin: 16px 0;
+    text-align: justify;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content p {
+        color: #f5f5f5;
+    }
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0;
+    line-height: 1.15;
+}
+
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+/* index.html styles */
+main#content ul#posts {
+    list-style-type: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding: 0;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts small {
+        color: #a7a7a7;
+    }
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts li a:hover {
+    color: #369aff;
+}
+
+main#content ul#posts li a:hover small {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts li a:hover {
+        color: #21c7ff;
+    }
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    display: block;
+    font-size: 23px;
+    font-size: 2.3rem;
+    line-height: 1.15;
+}
+
+main#content header#post-header time {
+    display: block;
+    font-size: 0.85em;
+    color: #767676;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content header#post-header time {
+        color: #a7a7a7;
+    }
+}
+
+main#content img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main#content code,
+main#content .goat ,
+main#content .goat svg,
+main#content pre {
+    font-family: 'Iosevka Etoile', monospace;
+}
+
+main#content code,
+main#content .goat,
+main#content .goat svg {
+    font-size: 0.96em;
+    padding: 0 5px;
+}
+
+main#content pre {
+    display: block;
+    overflow-x: auto;
+    font-size 14px;
+    font-size: 1.4rem;
+    white-space: pre;
+    margin: 20px 0;
+    padding: 1.5rem 1.5rem;
+    line-height: 1.4;
+}
+
+main#content pre code {
+    padding: 0;
+}
+
+footer#footer {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #949494;
+    margin: 40px 0;
+}
+
+a.imprint {
+    float: right;
+}
+
+    </style>
+    
+    
+    <link rel="stylesheet" href="https://jhbruhn.de/css/fontawesome.min.0154e262e41a403af5e72c5f6958fb3854147cda533415c0a8a1458fb505b9c0.css">   
+    
+    
+    <link rel="stylesheet" href="https://jhbruhn.de/css/fork-awesome.min.4a398bd4e9aa7694483fa9c924e8e1f34aae102f72838b5d3fa72fcfd8b98775.css">   
+    
+    <style type="text/css" media="(min-width: 770px)">
+        body {
+    width: 700px;
+    line-height: 1.5;
+}
+
+/* index.html styles */
+header#banner h2 {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
+
+main#content h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+main#content ul#posts {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
+
+main#content img {
+    max-width: 108%;
+    margin-left: -4%;
+}
+
+main#content pre {
+    width: 108%;
+    margin-left: -4%;
+    padding: 1.5rem 2.2rem;
+}
+
+    </style>
+
+    
+        
+        <link rel="stylesheet" href="https://jhbruhn.de/css/syntax.min.css">
+    
+
+    <link rel="shortcut icon" href='https://jhbruhn.de/favicon.ico'>
+</head>
+<body><header id="banner">
+    <h2><a href="https://jhbruhn.de">Jan-Henrik Bruhn</a></h2>
+    <nav>
+        <ul>
+            
+            
+            
+            <li><a href="mailto:hi-from-www@jhbruhn.de"><i class="fas fa-envelope"></i></a></li>
+            
+
+            
+            <li><a href="https://matrix.to/#/@jhbruhn:jhbruhn.de"><i class="fa fa-matrix-org"></i></a></li>
+            
+
+            
+            <li><a href="https://github.com/jhbruhn"><i class="fab fa-github"></i></a></li>
+            
+        
+            
+            <li><a href="https://www.linkedin.com/in/jan-henrik-bruhn/"><i class="fab fa-linkedin"></i></a></li>
+            
+        
+            
+            <li><a href="https://www.xing.com/profile/JanHenrik_Bruhn/cv"><i class="fab fa-xing"></i></a></li>
+            
+
+            
+            <li><a href="https://www.flickr.com/photos/96204086@N02/"><i class="fab fa-flickr"></i></a></li>
+            
+
+            
+            <li><a rel="me" href="https://social.baubs.net/@janhenrik"><i class="fab fa-mastodon"></i></a></li>
+            
+        
+        
+        </ul>
+    </nav>
+
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Moonboot</h1><time>April 27, 2022</time></header>
+
+    <aside>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#upgrades-on-embedded-devices">Upgrades on Embedded Devices</a></li>
+    <li><a href="#bootloader-tasks">Bootloader tasks</a></li>
+    <li><a href="#moonboot">Moonboot</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#bootloader-binary">Bootloader Binary</a></li>
+        <li><a href="#application-binary">Application Binary</a></li>
+        <li><a href="#custom-processor">Custom Processor</a></li>
+        <li><a href="#custom-communication">Custom Communication</a></li>
+      </ul>
+    </li>
+    <li><a href="#finish-line">Finish Line</a></li>
+  </ul>
+</nav>
+    </aside><p>Updating firmware on embedded devices is hard, if you are not running on some kind of operating system which can manage different applications:</p>
+<p>You have to receive the update via some communication path, ideally verifying its integrity and authenticity, store it somewhere and then give control to some instance to replace the currently running application with the newly received version.
+And if something goes wrong there, you want to prevent your device from bricking by having an ability to revert to the previous firmware!</p>
+<p>The common solution for these situations, where you have some firmware running bare-metal on the embedded system, is to include a bootloader which takes care of updating.</p>
+<h2 id="upgrades-on-embedded-devices">Upgrades on Embedded Devices</h2>
+<p>To allow upgrading of the way updates are downloaded (especially if doing Over-the-Air updates!), the download algorithm should be implemented in the application, not in the bootloader.
+This bootloader usually only serves the task of exchanging one firmware version A, stored in memory, with some other firmware B, stored somewhere else in memory:</p>
+<figure><img src="./banks.png"
+         alt="Memory of a device split into three sections: Bootloader, Firmware A and Firmware B"/><figcaption>
+            <h4>Memory split into different banks</h4>
+        </figcaption>
+</figure>
+
+<h2 id="bootloader-tasks">Bootloader tasks</h2>
+<p>With that structure, there are two options of choosing which firmware to execute:</p>
+<ul>
+<li>Either the firmwares support relative addressing/ are linked absolutely against the location they are stored in, thus the bootloader just jumps to whichever firmware it wants to execute, or</li>
+<li>the firmwares are both linked absolutely against the same origin address, and the bootloader moves whichever firmware is to be executed into the bank they are linked against.</li>
+</ul>
+<p>Because Position-Independent Code is uncommon in embedded firmware and providing different versions of the same firmware with different origin addresses is unhandy, the second option is more practical.</p>
+<p>To achieve such a system, your firmware project needs the following:</p>
+<ul>
+<li>Firmware which is linked to the appropriate address depending on the memorybanks</li>
+<li>A Bootloader to exchange the firmwares</li>
+<li>A way to communicate between firmware and bootloader to signal updates and results from updates</li>
+<li>A fallback mechanism in case the exchange operation fails</li>
+</ul>
+<h2 id="moonboot">Moonboot</h2>
+<p>To make things easier, I wrote a Rust library called <a href="https://github.com/jhbruhn/moonboot">moonboot</a>, a framework to build a bank-exchanging bootloader.</p>
+<p>The library abstracts away all the devices hardware and implements the exchange-algorithm for the bootloader.
+Additionally, a way to communicate between the application and bootloader is provided by use of a shared RAM section (although the abstractions also allow this to be replaced).</p>
+<p>As the memory-bank configuration is used in the bootloaders and applications code, and also required for linker scripts, functions to generate said linker scripts are included.
+These functions also generate the reserved sections for the RAM-communication-channel.</p>
+<p>This allows the project to have a memory configuration written in Rust-Code, based on which all other code is configured/ generated. Let&rsquo;s dive in!</p>
+<h3 id="structure">Structure</h3>
+<p>Your project should follow a specific structure to allow for different bootloader and application binaries, and also share the same configuration.</p>
+<pre tabindex="0"><code>workspace/
+ ├─application/
+ │  └─...
+ ├─bootloader/
+ │  └─...
+ ├─board/
+ │  └─...
+ └─common/
+    └─...
+
+</code></pre><p><strong><code>application</code></strong> contains your usual firmware binary implementation.</p>
+<p><strong><code>bootloader</code></strong> is the binary project for the bootloader which is implemented using moonboot.</p>
+<p><strong><code>board</code></strong> is a board-supported-crate for your specific hardware.
+Abstracting the hardware drivers away is generally a good idea, and comes in handy for this structure, as the hardware-drivers will be used by both the application and the bootloader.</p>
+<p><strong><code>common</code></strong> contains the memory-bank configuration in code. This will be used by the application and bootloader, both during build (if linker scripts are generated in the <code>build.rs</code>), and during runtime.</p>
+<h3 id="configuration">Configuration</h3>
+<p>To configure a moonboot bootloader, you need a memory bank configuration and a hardware abstraction.</p>
+<h4 id="memory">Memory</h4>
+<p><code>common/src/lib.rs</code> contains only some pub const structs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">moonboots</span>::<span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">hardware</span>::<span class="p">{</span><span class="n">Bank</span><span class="p">,</span><span class="w"> </span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">LinkerConfig</span><span class="p">,</span><span class="w"> </span><span class="n">MemoryUnit</span><span class="p">},</span><span class="w">
+</span><span class="w">    </span><span class="n">Address</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="p">};</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLASH_START</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x8000000</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FLASH_SIZE</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">const</span><span class="w"> </span><span class="n">RAM_START</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x20000000</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">const</span><span class="w"> </span><span class="n">RAM_SIZE</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">160</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">const</span><span class="w"> </span><span class="n">BOOTLOADER_SIZE</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">const</span><span class="w"> </span><span class="n">BANK_SIZE</span>: <span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">FLASH_SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">BOOTLOADER_SIZE</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CONFIG</span>: <span class="nc">Config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">bootloader_bank</span>: <span class="nc">Bank</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">location</span>: <span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">size</span>: <span class="nc">BOOTLOADER_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">memory_unit</span>: <span class="nc">MemoryUnit</span>::<span class="n">Internal</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">},</span><span class="w">
+</span><span class="w">    </span><span class="n">boot_bank</span>: <span class="nc">Bank</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">location</span>: <span class="nc">BOOTLOADER_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">size</span>: <span class="nc">BANK_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">memory_unit</span>: <span class="nc">MemoryUnit</span>::<span class="n">Internal</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">},</span><span class="w">
+</span><span class="w">    </span><span class="n">update_bank</span>: <span class="nc">Bank</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">location</span>: <span class="nc">BOOTLOADER_SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">BANK_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">size</span>: <span class="nc">BANK_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">memory_unit</span>: <span class="nc">MemoryUnit</span>::<span class="n">Internal</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">},</span><span class="w">
+</span><span class="w">    </span><span class="n">ram_bank</span>: <span class="nc">Bank</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">location</span>: <span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">size</span>: <span class="nc">RAM_SIZE</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">memory_unit</span>: <span class="nc">MemoryUnit</span>::<span class="n">Internal</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">},</span><span class="w">
+</span><span class="w"></span><span class="p">};</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LINKER_CONFIG</span>: <span class="nc">LinkerConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinkerConfig</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">flash_origin</span>: <span class="nc">FLASH_START</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">ram_origin</span>: <span class="nc">RAM_START</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">has_ram_state</span>: <span class="nc">true</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="p">};</span><span class="w">
+</span></code></pre></div><p>There is a <strong><code>Config</code></strong> struct to configure the memory banks, and also a <strong><code>LinkerConfig</code></strong>.
+Note that the origin addresses/locations in the <code>Config</code> struct are zero-indexed.
+The actual start address of the memory region is given in the <code>LinkerConfig</code>, in this case for a STM32L4 micocontroller.</p>
+<p>The config specifies four banks:</p>
+<ol>
+<li><code>bootloader_bank</code> is the bank the bootloader will be stored in. This has to be in the memory location the device starts execution from!</li>
+<li><code>boot_bank</code> is the bank containing the application to be executed in a normal scenario.</li>
+<li><code>update_bank</code> will contain any updates the bootloader is supposed to apply.</li>
+<li><code>ram_bank</code> specifies the RAM section the firmware of the device will use. Usually this is all the RAM. Using this information, the communication channel between bootloader and application can be configured.</li>
+</ol>
+<p>Having this configuration in a central code location has several advantages:</p>
+<ul>
+<li>We make less mistakes by not having to manually synchronize multiple occurences of these common values.</li>
+<li>We can do arithmetic operations and thus can for example easily calculate the size of the banks with a fixed size for the bootloader.</li>
+</ul>
+<h4 id="linker-scripts">Linker Scripts</h4>
+<p>Using this configuration, the linker scripts (<code>memory.x</code>) can easily be generated for both the application and the bootloader using the <code>moonboot_codegen</code> crate:</p>
+<p><code>bootloader/build.rs:</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">env</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">fs</span>::<span class="n">File</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Write</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">path</span>::<span class="n">PathBuf</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="c1">// Put `memory.x` in our output directory and ensure it&#39;s
+</span><span class="c1"></span><span class="w">    </span><span class="c1">// on the linker search path.
+</span><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PathBuf</span>::<span class="n">from</span><span class="p">(</span><span class="n">env</span>::<span class="n">var_os</span><span class="p">(</span><span class="s">&#34;OUT_DIR&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">());</span><span class="w">
+</span><span class="w">    </span><span class="n">File</span>::<span class="n">create</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#34;memory.x&#34;</span><span class="p">))</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">write_all</span><span class="p">(</span><span class="w">
+</span><span class="w">            </span><span class="n">moonboot_codegen</span>::<span class="n">linker</span>::<span class="n">generate_bootloader_script</span><span class="p">(</span><span class="w">
+</span><span class="w">                </span><span class="n">common</span>::<span class="n">CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">                </span><span class="n">common</span>::<span class="n">LINKER_CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">            </span><span class="p">)</span><span class="w">
+</span><span class="w">            </span><span class="p">.</span><span class="n">as_bytes</span><span class="p">(),</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;cargo:rustc-link-search={}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">display</span><span class="p">());</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p><code>application/build.rs:</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">env</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">fs</span>::<span class="n">File</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Write</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">path</span>::<span class="n">PathBuf</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="c1">// Put `memory.x` in our output directory and ensure it&#39;s
+</span><span class="c1"></span><span class="w">    </span><span class="c1">// on the linker search path.
+</span><span class="c1"></span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">PathBuf</span>::<span class="n">from</span><span class="p">(</span><span class="n">env</span>::<span class="n">var_os</span><span class="p">(</span><span class="s">&#34;OUT_DIR&#34;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">());</span><span class="w">
+</span><span class="w">    </span><span class="n">File</span>::<span class="n">create</span><span class="p">(</span><span class="n">out</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#34;memory.x&#34;</span><span class="p">))</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">write_all</span><span class="p">(</span><span class="w">
+</span><span class="w">            </span><span class="n">moonboot_codegen</span>::<span class="n">linker</span>::<span class="n">generate_application_script</span><span class="p">(</span><span class="w">
+</span><span class="w">                </span><span class="n">common</span>::<span class="n">CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">                </span><span class="n">common</span>::<span class="n">LINKER_CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">            </span><span class="p">)</span><span class="w">
+</span><span class="w">            </span><span class="p">.</span><span class="n">as_bytes</span><span class="p">(),</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w">
+</span><span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;cargo:rustc-link-search={}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">display</span><span class="p">());</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>The two <code>build.rs</code> files call the respective <code>generate_bootloader_script</code> or <code>generate_application_script</code> methods from the crate and write that script into a location where the linker can find it.
+If you want to take a look at the resulting script, you can find it in the <code>OUT_DIR</code> directory in the target dir.</p>
+<h3 id="bootloader-binary">Bootloader Binary</h3>
+<p>As all of the logic for the bootloader is implemnted in the moonboot library, the bootloaders main function consists of very little code lines:</p>
+<p><code>bootloader/src/main.rs:</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="kd">let</span><span class="w"> </span><span class="n">board</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">board</span>::<span class="n">Board</span>::<span class="n">take</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">internal_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">board</span><span class="p">.</span><span class="n">flash</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moonboot</span>::<span class="n">state</span>::<span class="n">ram</span>::<span class="n">RamState</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moonboot</span>::<span class="n">hardware</span>::<span class="n">processor</span>::<span class="n">cortex_m</span>::<span class="n">CortexM</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moonboot</span>::<span class="n">MoonbootBoot</span>::<span class="o">&lt;</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">common</span>::<span class="n">INTERNAL_PAGE_SIZE</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span>::<span class="n">new</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="n">common</span>::<span class="n">CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">internal_memory</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">state</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">processor</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">boot</span><span class="p">.</span><span class="n">boot</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="fm">unreachable!</span><span class="p">();</span><span class="w">
+</span></code></pre></div><p>The Exchange logic is abstracted away into the <code>MoonbootBoot</code> struct.
+To initialize the bootloader, we need four parameters:
+The memory-bank config, read/write access to internal memory, an implementation of <code>moonboot::state::State</code> providing the communication channel between application and bootloader, and an implementation of <code>moonboot::hardware::processor::Processor</code> which provides a method to jump to an application at a specific memory address.</p>
+<p>In this case, the code expects some <code>board::Board</code> struct which contains all board specific hardware.
+From that, moonboot takes a <code>board.flash</code> element, which is an abstraction over the internal flash, implementing the <a href="https://docs.rs/embedded-storage/latest/embedded_storage/trait.Storage.html"><code>embedded_storage::Storage</code></a> trait to provide read and write access over the whole internal memory range. This provides the <code>internal_memory</code> component.</p>
+<p>The communication channel in this case is using the aforementioned RAM-based implementation, which is provided with moonboot.</p>
+<p>As this example is using a <code>cortex-m</code> based MCU, the included <code>CortexM</code> implementation of <code>Processor</code> is used (requires the <code>cortex-m</code> feature for moonboot).</p>
+<p>Additionally a <code>PAGE_SIZE</code> const generic parameter is required for efficient operation of the exchange operation.</p>
+<p>After the <code>MoonshineBoot</code> is initialzed, you just need to call <code>boot()</code> and the rest is happening automatically.</p>
+<h3 id="application-binary">Application Binary</h3>
+<p>To access the <code>update_bank</code> and shared communication channel to the bootloader, and jump to the bootloader when an update was downloaded, moonboot provides the <code>MoonbootManager</code> struct:</p>
+<p><code>bootloader/src/main.rs:</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="kd">let</span><span class="w"> </span><span class="n">board</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">board</span>::<span class="n">Board</span>::<span class="n">take</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">internal_memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">board</span><span class="p">.</span><span class="n">flash</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moonboot</span>::<span class="n">state</span>::<span class="n">ram</span>::<span class="n">RamState</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moonboot</span>::<span class="n">hardware</span>::<span class="n">processor</span>::<span class="n">cortex_m</span>::<span class="n">CortexM</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span><span class="w">   </span><span class="n">moonboot</span>::<span class="n">MoonbootManager</span>::<span class="o">&lt;</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">common</span>::<span class="n">INTERNAL_PAGE_SIZE</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span>::<span class="n">new</span><span class="p">(</span><span class="w">
+</span><span class="w">        </span><span class="n">common</span>::<span class="n">CONFIG</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">internal_memory</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">state</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span><span class="n">processor</span><span class="p">,</span><span class="w">
+</span><span class="w">   </span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span></code></pre></div><p>The initialization is the same as for the <code>MoonbootBoot</code> struct.
+This struct provides two interesting methods:
+First of all, after a successful boot, you must mark it as successful. Otherwise, upon the next boot, the bootloader will restore the previous firmware version. This is to prevent bricking the device through faulty updates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="n">manager</span><span class="p">.</span><span class="n">mark_boot_as_successful</span><span class="p">();</span><span class="w">
+</span></code></pre></div><p>Downloading updates is easy as well.
+The <code>MoonbootManager</code> implements the <a href="https://docs.rs/embedded-storage/latest/embedded_storage/trait.Storage.html"><code>embedded_storage::Storage</code></a> trait.
+Writing to that storage writes/reads directly to/from the <code>update_bank</code>.
+If you need the <code>update_bank</code> as a slice, for example to verify a signature, you may use <code>as_ref(&amp;self) -&gt; &amp;[u8]</code> function implemented by the Manager.</p>
+<p>To finally apply an update, just call:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="n">manager</span><span class="p">.</span><span class="n">update</span><span class="p">();</span><span class="w">
+</span></code></pre></div><p>The Manager will automatically set the right signals via the state implementation and jump to the bootloader.
+The bootloader reads those signals and starts the exchange operation.
+Afterwards the bootloader stores that an updates has just been applied.
+If the application does not boot successfully and/or does not call <code>mark_boot_as_successful()</code>, said signal is not removed.
+Thus the bootloader knows whether to restore the old firmware version if it get&rsquo;s started the next time (i.e. through a reset after a HardFault).</p>
+<h3 id="custom-processor">Custom Processor</h3>
+<p>Currently only an implementation for CortexM CPUs with a <code>VTOR</code> register is included.
+For other processors, for example RISC-V, a different implementation will be needed.
+To do so, implement the <code>moonboot::hardware::processor::Processor</code> trait which defines the logic to jump to a specific address.
+The setup fn is called once at initialization, for example to set up an MPU.
+The do_jump fn will be called to jump to either the bootloader or the application location:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">impl</span><span class="w"> </span><span class="n">Processor</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">CortexM</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">fn</span> <span class="nf">do_jump</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">address</span>: <span class="nc">super</span>::<span class="n">Address</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">            </span><span class="c1">// Set Vector Table to new vector table (unsafe but okay here)
+</span><span class="c1"></span><span class="w">            </span><span class="p">(</span><span class="o">*</span><span class="n">cortex_m</span>::<span class="n">peripheral</span>::<span class="n">SCB</span>::<span class="n">ptr</span><span class="p">()).</span><span class="n">vtor</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">address</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w">            </span><span class="n">cortex_m</span>::<span class="n">asm</span>::<span class="n">bootload</span><span class="p">(</span><span class="n">address</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="kt">u32</span><span class="p">);</span><span class="w">
+</span><span class="w">        </span><span class="p">}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="k">fn</span> <span class="nf">setup</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">config</span>: <span class="kp">&amp;</span><span class="nc">crate</span>::<span class="n">hardware</span>::<span class="n">Config</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="c1">// Nothing to do!
+</span><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id="custom-communication">Custom Communication</h3>
+<p>To implement a custom communication channel, implement the <code>moonboot::state::State</code> trait:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="sd">/// Read the shared state
+</span><span class="sd"></span><span class="w">    </span><span class="k">fn</span> <span class="nf">read</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">MoonbootState</span><span class="p">;</span><span class="w">
+</span><span class="w">    </span><span class="sd">/// Write the new state to the shared state
+</span><span class="sd"></span><span class="w">    </span><span class="k">fn</span> <span class="nf">write</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">data</span>: <span class="nc">MoonbootState</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nb">Result</span><span class="o">&lt;</span><span class="p">(),</span><span class="w"> </span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p><code>MoonbootState</code> can be serialized to binary for example by using serde (if the according feature is enabled), or utilizing the Desse functions if the <code>ram-state</code> feature is enabled.</p>
+<h2 id="finish-line">Finish Line</h2>
+<p>You&rsquo;re done! You now have a bootloader based on moonboot which allows you to write a firmware update to internal memory, and apply it on demand.
+Some recommendations from here:</p>
+<ul>
+<li>If you acquire updates from a potentially untrusted channel, do signature checks of your updates.</li>
+<li>In addition to that, prevent replay attacks by only allowing upgrades, not downgrades (in version numbers)</li>
+<li>The IETF SUIT standard is a very good reference for that.</li>
+</ul>
+<p>If something is not working right or you need more documentation, please <a href="https://github.com/jhbruhn/moonboot/issues">file an issue</a>.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2022 Jan-Henrik Bruhn
+    
+    
+        <a href="https://jhbruhn.de/_imprint/" class="imprint">Imprint</a>
+    
+</footer>
+</body>
+</html>

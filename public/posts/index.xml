@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jan-Henrik Bruhn</title>
+    <link>https://jhbruhn.de/posts/</link>
+    <description>Recent content in Posts on Jan-Henrik Bruhn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jhbruhn.de/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moonboot</title>
+      <link>https://jhbruhn.de/posts/moonboot/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhbruhn.de/posts/moonboot/</guid>
+      <description>Updating firmware on embedded devices is hard, if you are not running on some kind of operating system which can manage different applications:
+You have to receive the update via some communication path, ideally verifying its integrity and authenticity, store it somewhere and then give control to some instance to replace the currently running application with the newly received version. And if something goes wrong there, you want to prevent your device from bricking by having an ability to revert to the previous firmware!</description>
+    </item>
+    
+  </channel>
+</rss>
